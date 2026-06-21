@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://kfm56ku6yms5"]
+
+[ext_resource type="Theme" uid="uid://d0j2f3ohxwe7v" path="res://submodules/Auby-s-UI-Library/UI/Themes/button-theme.tres" id="1_oqjy1"]
+[ext_resource type="Script" uid="uid://6fsxublbbutp" path="res://scripts/ui/main_menu_btn.gd" id="2_l2tvr"]
+
+[node name="Main Menu Button" type="Button" unique_id=88259072]
+offset_right = 529.0
+offset_bottom = 113.0
+pivot_offset = Vector2(264.5, 56.5)
+theme = ExtResource("1_oqjy1")
+script = ExtResource("2_l2tvr")
