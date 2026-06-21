@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://crn81smfgbqhx"]
+
+[ext_resource type="Script" uid="uid://dp16v2dlf55y1" path="res://Scenes/ui_museum_1.gd" id="1_8da0j"]
+[ext_resource type="PackedScene" uid="uid://dhnl2qlq33cb3" path="res://Scenes/main_menu_button.tscn" id="2_uup3a"]
+[ext_resource type="PackedScene" uid="uid://c4qtu7g1vttv7" path="res://Scenes/square_button.tscn" id="3_vypmn"]
+
+[node name="UIMuseum1" type="Control" unique_id=1585354839]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8da0j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1233821326]
+layout_mode = 0
+offset_left = 633.0
+offset_right = 1133.0
+offset_bottom = 324.0
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Main Menu Button" parent="VBoxContainer" unique_id=88259072 instance=ExtResource("2_uup3a")]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+content = "Button 1"
+
+[node name="Main Menu Button2" parent="VBoxContainer" unique_id=764151911 instance=ExtResource("2_uup3a")]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+content = "Button 2"
+
+[node name="Main Menu Button3" parent="VBoxContainer" unique_id=2137759853 instance=ExtResource("2_uup3a")]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+content = "Button 3"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1515673085]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 384.0
+offset_right = 1109.0
+offset_bottom = 484.0
+theme_override_constants/separation = 26
+
+[node name="Square Button" parent="HBoxContainer" unique_id=1181934845 instance=ExtResource("3_vypmn")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "!"
+
+[node name="Square Button2" parent="HBoxContainer" unique_id=647576882 instance=ExtResource("3_vypmn")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "?"
+
+[node name="Square Button3" parent="HBoxContainer" unique_id=538237252 instance=ExtResource("3_vypmn")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "$"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=424829007]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2170139
+anchor_right = 0.4340278
+anchor_bottom = 1.0
+offset_left = 250.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="SwitchMenu" parent="MarginContainer" unique_id=1479554149 instance=ExtResource("2_uup3a")]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 0
+content = "switch menu"
+
+[connection signal="pressed" from="MarginContainer/SwitchMenu" to="." method="_on_switch_menu_pressed"]

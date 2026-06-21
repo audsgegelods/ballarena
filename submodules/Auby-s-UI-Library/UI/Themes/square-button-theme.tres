@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://i3eudembpjvw"]
+
+[ext_resource type="StyleBox" uid="uid://b7rt3iranwi8m" path="res://UI/Styles/square-button-normal.tres" id="2_mp1tw"]
+
+[sub_resource type="FontVariation" id="FontVariation_mpc8c"]
+
+[resource]
+default_font_size = 36
+Button/colors/font_color = Color(0.9254902, 0.9019608, 0.7607843, 1)
+Button/colors/font_hover_color = Color(0.9254902, 0.9019608, 0.7607843, 1)
+Button/fonts/font = SubResource("FontVariation_mpc8c")
+Button/styles/hover = ExtResource("2_mp1tw")
+Button/styles/normal = ExtResource("2_mp1tw")
