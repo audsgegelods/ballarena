@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+submodules/Auby-s-UI-Library/**/*.import
+submodules/Auby-s-UI-Library/**/*.uid
