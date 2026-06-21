@@ -12,6 +12,7 @@ height = 124.0
 [node name="Player" type="CharacterBody2D" unique_id=1452228314]
 motion_mode = 1
 script = ExtResource("1_g2els")
+show_debug = true
 move_speed = 256.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1922138586]
