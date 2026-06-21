@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ds0atue7cmr60"]
 
+[ext_resource type="PackedScene" uid="uid://bnelqs7f3c6iv" path="res://scenes/player.tscn" id="1_o5qli"]
+
 [node name="main" type="Node" unique_id=175430429]
 
 [node name="Label" type="Label" parent="." unique_id=1577861955]
@@ -8,3 +10,5 @@ offset_top = 237.0
 offset_right = 814.0
 offset_bottom = 388.0
 text = "this is the main scene"
+
+[node name="Player" parent="." unique_id=1452228314 instance=ExtResource("1_o5qli")]
