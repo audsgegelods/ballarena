@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 #Movement
 @export var move_speed:= 8.0
-@export var rotation_speed:= 0.08
+@export var turn_speed:= 0.08
 var move_dir: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
@@ -24,7 +24,7 @@ func get_cursor_dir() -> Vector2:
 	return dir.normalized()
 
 func rotate_towards_cursor() -> Vector2:
-	return move_dir.lerp(get_cursor_dir(), rotation_speed).normalized()
+	return move_dir.lerp(get_cursor_dir(), turn_speed).normalized()
 
 func update_debug_arrows() -> void:
 	$Debug/CursorPosArrow.rotation = get_cursor_dir().angle()
