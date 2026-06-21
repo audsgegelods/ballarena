@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://cro7134fxqto8"]
 
+[ext_resource type="Script" uid="uid://8mhh6dhss00f" path="res://scripts/ui/main_menu.gd" id="1_ovrgc"]
+[ext_resource type="PackedScene" uid="uid://kfm56ku6yms5" path="res://scenes/menus/menu-btn.tscn" id="1_xqga4"]
+[ext_resource type="PackedScene" uid="uid://68pb24u0c7w2" path="res://scenes/menus/scene_transition.tscn" id="3_2o76q"]
+
 [node name="MainMenu" type="Control" unique_id=1190517731]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +11,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ovrgc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=183353919]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -56.0
+offset_right = 556.0
+offset_bottom = 278.0
+grow_vertical = 2
+theme_override_constants/separation = 31
+alignment = 1
+
+[node name="PlayBtn" parent="VBoxContainer" unique_id=88259072 instance=ExtResource("1_xqga4")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Play
+"
+
+[node name="SettingsBtn" parent="VBoxContainer" unique_id=655361074 instance=ExtResource("1_xqga4")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="QuitBtn" parent="VBoxContainer" unique_id=845152564 instance=ExtResource("1_xqga4")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="SceneTransition" parent="." unique_id=622724887 instance=ExtResource("3_2o76q")]
+
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

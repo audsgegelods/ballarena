@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cq6bcxp8dpx7q"]
+
+[ext_resource type="Script" uid="uid://dx80iogb62whf" path="res://scripts/globals/SceneManager.gd" id="1_efx10"]
+[ext_resource type="PackedScene" uid="uid://68pb24u0c7w2" path="res://scenes/menus/scene_transition.tscn" id="2_k8poj"]
+
+[node name="SceneManager" type="Node" unique_id=203648235]
+script = ExtResource("1_efx10")
+
+[node name="SceneTransition" parent="." unique_id=622724887 instance=ExtResource("2_k8poj")]

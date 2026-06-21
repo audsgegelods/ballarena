@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhnl2qlq33cb3"]
 
-[ext_resource type="Theme" uid="uid://d0j2f3ohxwe7v" path="res://UI/Themes/button-theme.tres" id="1_ah3is"]
-[ext_resource type="Script" uid="uid://ctu433vqfp5jq" path="res://Scripts/main_menu_button.gd" id="2_gyuyx"]
+[ext_resource type="Theme" uid="uid://d0j2f3ohxwe7v" path="res://submodules/Auby-s-UI-Library/UI/Themes/button-theme.tres" id="1_ah3is"]
+[ext_resource type="Script" uid="uid://ctu433vqfp5jq" path="res://submodules/Auby-s-UI-Library/Scripts/main_menu_button.gd" id="2_gyuyx"]
 
 [sub_resource type="FontVariation" id="FontVariation_0vvm8"]
 

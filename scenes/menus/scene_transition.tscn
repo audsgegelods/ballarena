@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://68pb24u0c7w2"]
+
+[ext_resource type="Script" uid="uid://n5k44x0gok2h" path="res://scripts/ui/scene_transition.gd" id="1_3bgq8"]
+
+[sub_resource type="Animation" id="Animation_3bgq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 648)]
+}
+
+[sub_resource type="Animation" id="Animation_aruo5"]
+resource_name = "wipe"
+length = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 648), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sromv"]
+resource_name = "wipe_enter_2"
+length = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bgq8"]
+_data = {
+&"RESET": SubResource("Animation_3bgq8"),
+&"wipe_enter": SubResource("Animation_aruo5"),
+&"wipe_exit": SubResource("Animation_sromv")
+}
+
+[node name="scene-transition" type="CanvasLayer" unique_id=622724887]
+script = ExtResource("1_3bgq8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=874457066]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 648.0
+offset_bottom = 648.001
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2081527556]
+libraries/ = SubResource("AnimationLibrary_3bgq8")
