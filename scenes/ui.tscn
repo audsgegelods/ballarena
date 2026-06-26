@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dpqcpupirw102"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_tdwok"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1588621243]
+script = ExtResource("1_tdwok")
+
+[node name="Label" type="Label" parent="." unique_id=1357346799]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0
+"
