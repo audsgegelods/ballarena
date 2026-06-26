@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c0jwqmyyio8ox"]
+
+[ext_resource type="Script" uid="uid://1bcgh1q2h4wc" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://bthmt58s3m2jq" path="res://icon.svg" id="2_c4w8v"]
+[ext_resource type="Texture2D" uid="uid://bwad32s32mss" path="res://sprites/debug/CursorDir.png" id="4_nenq2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag0bx"]
+radius = 62.0
+height = 124.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1452228314]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_md0e3")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1922138586]
+modulate = Color(0.32497647, 0.6160031, 0, 1)
+texture = ExtResource("2_c4w8v")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2029330132 groups=["enemy"]]
+
+[node name="Hurtbox Shape" type="CollisionShape2D" parent="Hurtbox" unique_id=1775673128]
+shape = SubResource("CapsuleShape2D_ag0bx")
+
+[node name="Debug" type="Node2D" parent="." unique_id=1593936262]
+
+[node name="RotateDirArrow" type="Sprite2D" parent="Debug" unique_id=1858966642]
+position = Vector2(52.999996, 1.9999924)
+rotation = 3.1415927
+scale = Vector2(0.5468749, 0.578125)
+texture = ExtResource("4_nenq2")
+offset = Vector2(100, 0)
+
+[node name="RotateSpeedText" type="TextEdit" parent="Debug" unique_id=887860289]
+offset_left = -24.0
+offset_top = 19.0
+offset_right = 32.0
+offset_bottom = 49.0
+placeholder_text = "1.0"
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
