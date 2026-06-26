@@ -1,8 +1,19 @@
-[gd_scene format=3 uid="uid://c0jwqmyyio8ox"]
+[gd_scene format=3 uid="uid://lqrjfiuskskv"]
 
 [ext_resource type="Script" uid="uid://1bcgh1q2h4wc" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://bthmt58s3m2jq" path="res://icon.svg" id="2_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://bwad32s32mss" path="res://sprites/debug/CursorDir.png" id="4_nenq2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uy6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c4w8v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag0bx"]
 radius = 62.0
@@ -13,9 +24,8 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_md0e3")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1922138586]
-modulate = Color(0.32497647, 0.6160031, 0, 1)
-texture = ExtResource("2_c4w8v")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1438570242]
+sprite_frames = SubResource("SpriteFrames_5uy6h")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=2029330132 groups=["enemy"]]
 

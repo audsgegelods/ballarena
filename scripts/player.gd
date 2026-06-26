@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var show_debug: bool = false
-var alive: bool = true
+var state: String = "turnLeft"
+var totalScore: int = 0
 
 #Movement
 @export var move_speed:= 256
@@ -26,7 +27,7 @@ func _ready() -> void:
 	$Debug.visible = show_debug
 
 func _physics_process(delta) -> void:
-	if alive:
+	if state != "stop":
 		# Movement Logic
 		move_dir = rotate_towards_cursor().normalized()
 
@@ -55,8 +56,12 @@ func _physics_process(delta) -> void:
 			rotate_speed -= rotate_decay * delta 
 
 func _process(delta) -> void:
-	if alive:
+	if state != "stop":
 		update_debug_arrows()
+		if rotate_dir == -1:
+			state = "turnLeft"
+		elif rotate_dir == 1:
+			state = "turnRight"
 		if rotate_speed <= 0:
 			die()
 
@@ -92,8 +97,14 @@ func get_rotate_dir() -> int:
 	
 func die():
 	hide()
-	alive = false
+	state = "stop"
 	$RespawnTimer.start()
 
 func _on_respawn_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+	
+func getScore() -> int:
+	return totalScore
+	
+func addScore(score) -> void:
+	totalScore += score

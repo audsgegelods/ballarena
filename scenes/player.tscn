@@ -5,6 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://vsf3r4krf3dn" path="res://sprites/debug/MoveDir.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bwad32s32mss" path="res://sprites/debug/CursorDir.png" id="4_qlg0r"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3t2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g2els")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag0bx"]
 radius = 62.0
 height = 124.0
@@ -15,8 +26,8 @@ motion_mode = 1
 script = ExtResource("1_g2els")
 show_debug = true
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1922138586]
-texture = ExtResource("2_g2els")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1890653996]
+sprite_frames = SubResource("SpriteFrames_j3t2j")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1775673128]
 shape = SubResource("CapsuleShape2D_ag0bx")

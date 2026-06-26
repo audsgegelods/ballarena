@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var show_debug: bool = true
 var player = null
+var state: String = "turnLeft"
 
 #Movement
 @export var move_speed:= 100
@@ -25,6 +26,9 @@ var knockback_decay: float = 450
 func _ready() -> void:
 	$Debug.visible = show_debug
 	player = get_tree().get_nodes_in_group("player")[0]
+	var rotate_speed = randf_range(2.0, 5.0)
+	var rotate_dir = randf_range(-1.0, 1.0)
+
 
 func _physics_process(delta) -> void:	
 	sprite.rotate(rotate_speed * rotate_dir * delta)
@@ -39,7 +43,10 @@ func _physics_process(delta) -> void:
 		
 func _process(delta) -> void:
 	update_debug_arrows()
-	
+	if rotate_dir == -1:
+		state = "turnLeft"
+	elif rotate_dir == 1:
+		state = "turnRight"
 	if rotate_speed <= 0:
 		die()
 
@@ -65,22 +72,20 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		body.set_knockback(knockback_dir)
 		set_knockback(-knockback_dir)
 		
+		var total = player_rotate_speed + rotate_speed
+		var playerRatio = player_rotate_speed / total
+		var enemyRatio = rotate_speed / total
+		
 		if body.get_rotate_dir() == rotate_dir: # if same direction
-			if player_rotate_speed > rotate_speed: # if player faster than enemy
-				add_rotate_speed(-player_rotate_speed / 2) # slow down enemy
-				
-			elif player_rotate_speed < rotate_speed: # if player slower than enemy
-				body.add_rotate_speed(-rotate_speed / 2) # slow down player
-				
-			else: # if speeds are equal, slow down both
-				body.add_rotate_speed(-rotate_speed / 2) 
-				add_rotate_speed(-rotate_speed / 2) 
+			add_rotate_speed(-playerRatio * 2) # slow down enemy
+			body.add_rotate_speed(-enemyRatio * 2) # slow down player
 
-		else:
-			body.add_rotate_speed(rotate_speed / 4) # add speed if player is going opposite
-			add_rotate_speed(-player_rotate_speed / 4) # add speed if player is going opposite
+		else: # if opposite direction
+			body.add_rotate_speed(enemyRatio) # speed up player
+			add_rotate_speed(-playerRatio) # slow down enemy
 			
 func die():
+	state = "stop"
 	queue_free()
 
 func set_knockback(dir) -> void:
